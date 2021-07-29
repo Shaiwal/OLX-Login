@@ -51,10 +51,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 		//disable cors may or may not be needed
 		httpSecurity.authorizeRequests()
 		.antMatchers("/admin").hasRole ("ADMIN")
-		.antMatchers("/user").hasAnyRole("USER","ADMIN")
-		.antMatchers("/all","/authenticate","/actuator").permitAll()
+		//.antMatchers("/user/**").hasAnyRole("USER","ADMIN")
+		.antMatchers("/all","/authenticate","/actuator","/user").permitAll()
 	//	.antMatchers("/","static/css", "static/js").permitAll()
-		.anyRequest().authenticated()
+	//	.anyRequest().authenticated()
 		.and().exceptionHandling()
 		.and().sessionManagement()
 		.sessionCreationPolicy(SessionCreationPolicy.STATELESS);

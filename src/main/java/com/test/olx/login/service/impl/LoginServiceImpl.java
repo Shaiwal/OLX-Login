@@ -62,6 +62,7 @@ public class LoginServiceImpl implements LoginService{
 		user.setLastName(userEntity.getLastName());
 		user.setPhone(userEntity.getPhone());
 		user.setEmail(userEntity.getEmail());
+		System.out.println(user);
 		return user;
 		
 	}

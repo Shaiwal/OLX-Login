@@ -81,7 +81,9 @@ public class LoginController {
 	@RequestMapping(path = "/user", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE}, consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
 	@ApiOperation(value = "Returns user info from authentication token", notes = "API to get user info")
 	public ResponseEntity<User> getUserInfo(@RequestHeader("auth-token") String authToken){
+		System.out.println("inside getuserinfo");
 		String username = jwtUtils.extractUsername(authToken);
+		System.out.println(username);
 		return new ResponseEntity<User>(this.loginservice.getUserInfoSer(username), HttpStatus.OK);
 	}
 	
